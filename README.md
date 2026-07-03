@@ -1,50 +1,65 @@
-# LuminkeyAnalogInput
+<div align="center">
+  <img src="assets/app_icon.png" width="100" height="100" alt="LuminkeyAnalogInput Icon">
+  
+  # LuminkeyAnalogInput
+  
+  **The ultimate software to unleash the full potential of your Luminkey keyboard.**
+  
+  [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+</div>
 
-LuminkeyAnalogInput is an open-source tool that transforms your magnetic switch (Hall Effect) keyboard into a fully functional analog gamepad (Xbox 360 controller) on Windows.
+<br>
 
-It reads the raw, continuous actuation depth of your keypresses and maps them directly to gamepad axes (like analog sticks or triggers). This allows you to smoothly steer cars, precisely control character movement speed, or gradually apply throttle and brake in games using just your keyboard!
+<div align="center">
+  <img src="app.png" alt="LuminkeyAnalogInput Screenshot" style="border-radius: 10px; max-width: 100%;">
+</div>
 
-## Features
+## Overview
 
-- **Full Analog Control**: Maps the depth of your keypresses directly to gamepad axes.
-- **Customizable Response Curves**: Choose between Linear, Exponential, or Logarithmic curves for steering, throttle, or camera controls.
-- **Adjustable Deadzones**: Configure starting and ending deadzones to filter out resting fingers and adjust bottom-out behavior.
-- **Gamepad Mode**: Automatically hides your bound keys from Windows so games only register the Gamepad inputs, preventing conflicting keyboard/controller switching in-game.
-- **Easy Setup**: Built-in 1-click dependency installer via Windows Package Manager (winget).
+**LuminkeyAnalogInput** open-source utility that transforms your keyboard into a fully functional analog controller. It intercepts the raw, continuous actuation depth of your keypresses and maps them directly to gamepad axes or advanced keyboard macros.
+
+Whether you want to smoothly steer cars in racing games, seamlessly control your character's walking speed, or gain a competitive edge in shooters with Snap Tap and Rapid Trigger — this tool has you covered.
 
 
-## Requirements
 
-The application requires three dependencies to function perfectly. The built-in dashboard will automatically detect missing dependencies and provide an install button for each:
+### Full Analog Gamepad Emulation
+Map the physical depth of your keystrokes directly to Xbox 360 controller axes (Analog Sticks or Triggers).
+- **Steer with precision**: Lightly press a key to turn slightly, or bottom out for a sharp turn.
+- **Adjustable Response Curves**: Fine-tune the actuation curve. Set custom starting/ending deadzones and shape the curve exactly to your liking.
+- **True Gamepad Mode**: Automatically hides your physical keyboard inputs from Windows while enabled, preventing games from spastically switching between "Keyboard" and "Controller" UI prompts.
 
-1. **Interception**: A kernel-level driver used to intercept keystrokes before Windows processes them (essential for Gamepad Mode).
-2. **ViGEmBus**: A virtual gamepad emulation framework that allows Windows to recognize the fake Xbox 360 controller.
-3. **HidHide**: A utility to completely hide your original physical keyboard inputs from games when Gamepad Mode is active.
+
+### Multilingual UI
+ **English** and **Russian**
+
+## Requirements & Drivers
+
+To achieve zero-latency kernel-level interception and virtual gamepad emulation, the application relies on three drivers. The built-in dashboard will automatically detect them and offer 1-click installation!
+
+1. **ViGEmBus**: Allows Windows to recognize the emulated Xbox 360 controller.
+2. **Interception**: A kernel-level driver that reads raw keyboard input *before* Windows processes it.
+3. **HidHide**: Hides your original physical keystrokes from the game to avoid double-inputs.
 
 ## Installation
 
 1. Download the latest `LuminkeyAnalogInput.exe` from the [Releases](https://github.com/DEN41R/LuminkeyAnalogInput/releases) page.
 2. Run the executable.
-3. On the **Dashboard**, check the Driver Status section. If any drivers are missing, click their **Install** buttons.
+3. On the **Configuration** tab, check the "Drivers" section. If any are missing, click **Install**.
 4. **Reboot your PC** after installing kernel-level drivers.
+5. Launch the app and enjoy!
 
-## Usage
+## Building from Source
 
-1. Open **LuminkeyAnalogInput**.
-2. Go to the **Axes** or **Buttons** tab.
-3. Click "Button: None" next to the action you want to map (e.g., Right Trigger - Throttle).
-4. Press the physical key on your keyboard.
-5. Set your desired deadzones and response curves.
-6. (Optional but Recommended) Go to **Settings** and enable **Gamepad Mode** to prevent your keyboard keys from interfering with the game.
-7. Launch your game and enjoy analog control!
-
-## Building from source
+If you want to modify the code or build the executable yourself:
 
 1. Clone the repository.
-2. Install Python 3.10+
-3. Install dependencies: `pip install PyQt6 qfluentwidgets vgamepad interception-python`
-4. Run `python build.py` to create the standalone executable using PyInstaller.
+2. Install Python 3.10+ and create a virtual environment (`python -m venv .venv`).
+3. Run `build.py`:
+   ```bash
+   .venv\Scripts\python build.py
+   ```
+4. The script will automatically install all required dependencies (`pyinstaller`, `pywebview`, `vgamepad`, `hidapi`) and generate a standalone `.exe` in the `dist/` folder.
 
-## License
+## 📄 License
 
 This project is open-source and available under the MIT License.
