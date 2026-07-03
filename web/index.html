@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luminkey Controller</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+       
+        <div class="keyboard-section">
+            <div class="keyboard" id="keyboard">
+            
+                <div class="kb-row">
+                    <div class="key" data-key="Esc">Esc</div>
+                    <div class="key" data-key="1">! 1</div>
+                    <div class="key" data-key="2">@ 2</div>
+                    <div class="key" data-key="3"># 3</div>
+                    <div class="key" data-key="4">$ 4</div>
+                    <div class="key" data-key="5">% 5</div>
+                    <div class="key" data-key="6">^ 6</div>
+                    <div class="key" data-key="7">& 7</div>
+                    <div class="key" data-key="8">* 8</div>
+                    <div class="key" data-key="9">( 9</div>
+                    <div class="key" data-key="0">) 0</div>
+                    <div class="key" data-key="-">_ -</div>
+                    <div class="key" data-key="=">+ =</div>
+                    <div class="key w200" data-key="Backspace">Back</div>
+                    <div class="key" data-key="`">~ `</div>
+                </div>
+         
+                <div class="kb-row">
+                    <div class="key w150" data-key="Tab">Tab</div>
+                    <div class="key" data-key="Q">Q</div>
+                    <div class="key" data-key="W">W</div>
+                    <div class="key" data-key="E">E</div>
+                    <div class="key" data-key="R">R</div>
+                    <div class="key" data-key="T">T</div>
+                    <div class="key" data-key="Y">Y</div>
+                    <div class="key" data-key="U">U</div>
+                    <div class="key" data-key="I">I</div>
+                    <div class="key" data-key="O">O</div>
+                    <div class="key" data-key="P">P</div>
+                    <div class="key" data-key="[">{ [</div>
+                    <div class="key" data-key="]">} ]</div>
+                    <div class="key w150" data-key="\\">| \</div>
+                    <div class="key" data-key="Del">Del</div>
+                </div>
+             
+                <div class="kb-row">
+                    <div class="key w175" data-key="CapsLock">Caps</div>
+                    <div class="key" data-key="A">A</div>
+                    <div class="key" data-key="S">S</div>
+                    <div class="key" data-key="D">D</div>
+                    <div class="key" data-key="F">F</div>
+                    <div class="key" data-key="G">G</div>
+                    <div class="key" data-key="H">H</div>
+                    <div class="key" data-key="J">J</div>
+                    <div class="key" data-key="K">K</div>
+                    <div class="key" data-key="L">L</div>
+                    <div class="key" data-key=";">: ;</div>
+                    <div class="key" data-key="'">" '</div>
+                    <div class="key w225" data-key="Enter">Enter</div>
+                    <div class="key" data-key="PgUp">PgUp</div>
+                </div>
+              
+                <div class="kb-row">
+                    <div class="key w225" data-key="LShift">SHIFT</div>
+                    <div class="key" data-key="Z">Z</div>
+                    <div class="key" data-key="X">X</div>
+                    <div class="key" data-key="C">C</div>
+                    <div class="key" data-key="V">V</div>
+                    <div class="key" data-key="B">B</div>
+                    <div class="key" data-key="N">N</div>
+                    <div class="key" data-key="M">M</div>
+                    <div class="key" data-key=",">< ,</div>
+                    <div class="key" data-key=".">> .</div>
+                    <div class="key" data-key="/">? /</div>
+                    <div class="key w175" data-key="RShift">SHIFT</div>
+                    <div class="key" data-key="Up">↑</div>
+                    <div class="key" data-key="PgDn">PgDn</div>
+                </div>
+            
+                <div class="kb-row">
+                    <div class="key w125" data-key="LCtrl">CTRL</div>
+                    <div class="key w125" data-key="LWin">WIN</div>
+                    <div class="key w125" data-key="LAlt">ALT</div>
+                    <div class="key w625" data-key="Space">Space</div>
+                    <div class="key w100" data-key="RAlt">ALT</div>
+                    <div class="key w100" data-key="Fn">FN1</div>
+                    <div class="key w100" data-key="RCtrl">CTRL</div>
+                    <div class="key" data-key="Left">←</div>
+                    <div class="key" data-key="Down">↓</div>
+                    <div class="key" data-key="Right">→</div>
+                </div>
+            </div>
+        </div>
+
+      
+        <div class="header" style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <h2 data-i18n="main_title">Контроллер</h2>
+                <select id="lang-select" style="background: #2a2a2a; color: white; border: 1px solid #444; border-radius: 4px; padding: 4px;">
+                    <option value="ru">Русский</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="tab-bindings" data-i18n="tab_bindings">Настройка & Переназначение</button>
+                <button class="tab-btn" data-tab="tab-config" data-i18n="tab_config">Конфигурация</button>
+                <button class="tab-btn" data-tab="tab-advanced" data-i18n="tab_advanced">Advanced</button>
+                <button class="tab-btn" data-tab="tab-tester" data-i18n="tab_tester">Тестер</button>
+            </div>
+        </div>
+
+     
+        <div class="panels-container">
+       
+            <div class="panel left-panel">
+                <div class="settings-group">
+                    <div class="setting-row">
+                        <h3 data-i18n="mode_controller">Включить контроллер</h3>
+                        <label class="switch">
+                            <input type="checkbox" id="toggle-controller" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <p class="desc" data-i18n="mode_controller_desc">Ваша клавиатура Magger68 может работать как контроллер, передавая аналоговые сигналы клавиш.</p>
+                </div>
+                
+                <div class="settings-group highlight">
+                    <div class="setting-row">
+                        <h3 data-i18n="mode_kb">Включить клавиши клавиатуры</h3>
+                        <label class="switch">
+                            <input type="checkbox" id="toggle-keyboard" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <p class="desc" data-i18n="mode_kb_desc">Включите цифровые клавиши, если вы хотите использовать их для набора текста. Выключите цифровые клавиши, чтобы они не мешали кнопкам вывода контроллера (Gamepad Mode).</p>
+                </div>
+            </div>
+
+        
+            <div class="right-panels">
+                
+            
+                <div class="panel tab-content active" id="tab-bindings">
+                    <h3 data-i18n="bind_title">Привязка контроллера</h3>
+                    <p class="desc" data-i18n="bind_desc">Добавьте кнопки контроллера, перетащив их на клавиатуру. Щелкните правой кнопкой мыши по клавише клавиатуры, чтобы удалить кнопку.</p>
+                    
+                    <div class="gamepad-btns">
+                     
+                        <div class="g-btn draggable" data-btn="A"><div class="icon-circle" style="background: #1db954;">A</div></div>
+                        <div class="g-btn draggable" data-btn="B"><div class="icon-circle" style="background: #e03c31;">B</div></div>
+                        <div class="g-btn draggable" data-btn="X"><div class="icon-circle" style="background: #2570d8;">X</div></div>
+                        <div class="g-btn draggable" data-btn="Y"><div class="icon-circle" style="background: #f3a812;">Y</div></div>
+                        
+                       
+                        <div class="g-btn draggable" data-btn="Start">
+                            <div class="menu-btn">
+                                <svg viewBox="0 0 24 24"><polygon points="9,6 17,12 9,18" fill="#ddd"/></svg>
+                            </div>
+                        </div>
+                        <div class="g-btn draggable" data-btn="Back">
+                            <div class="menu-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="#ddd" stroke-width="2.5"><rect x="6" y="6" width="8" height="8"/><rect x="10" y="10" width="8" height="8"/></svg>
+                            </div>
+                        </div>
+                        <div class="g-btn draggable" data-btn="Guide">
+                            <div class="icon-circle" style="background: #3a3d42; border: 2px solid #f3a812; color: #f3a812;">X</div>
+                        </div>
+
+                     
+                        <div class="g-btn draggable" data-btn="DPad_Up">
+                            <svg width="28" height="28" viewBox="0 0 24 24">
+                                <path d="M8 2 h8 v6 h6 v8 h-6 v6 h-8 v-6 h-6 v-8 h6 z" fill="#757a82"/>
+                                <polygon points="12,4 9,8 15,8" fill="#fff"/>
+                            </svg>
+                        </div>
+                        <div class="g-btn draggable" data-btn="DPad_Down">
+                            <svg width="28" height="28" viewBox="0 0 24 24">
+                                <path d="M8 2 h8 v6 h6 v8 h-6 v6 h-8 v-6 h-6 v-8 h6 z" fill="#757a82"/>
+                                <polygon points="12,20 9,16 15,16" fill="#fff"/>
+                            </svg>
+                        </div>
+                        <div class="g-btn draggable" data-btn="DPad_Left">
+                            <svg width="28" height="28" viewBox="0 0 24 24">
+                                <path d="M8 2 h8 v6 h6 v8 h-6 v6 h-8 v-6 h-6 v-8 h6 z" fill="#757a82"/>
+                                <polygon points="4,12 8,9 8,15" fill="#fff"/>
+                            </svg>
+                        </div>
+                        <div class="g-btn draggable" data-btn="DPad_Right">
+                            <svg width="28" height="28" viewBox="0 0 24 24">
+                                <path d="M8 2 h8 v6 h6 v8 h-6 v6 h-8 v-6 h-6 v-8 h6 z" fill="#757a82"/>
+                                <polygon points="20,12 16,9 16,15" fill="#fff"/>
+                            </svg>
+                        </div>
+                        
+              
+                        <div class="g-btn draggable stick-btn dir-up" data-btn="LS_Up"><div class="stick-circle">L</div></div>
+                        <div class="g-btn draggable stick-btn dir-down" data-btn="LS_Down"><div class="stick-circle">L</div></div>
+                        <div class="g-btn draggable stick-btn dir-left" data-btn="LS_Left"><div class="stick-circle">L</div></div>
+                        <div class="g-btn draggable stick-btn dir-right" data-btn="LS_Right"><div class="stick-circle">L</div></div>
+                        <div class="g-btn draggable stick-btn full" data-btn="L3"><div class="stick-circle">L</div></div>
+
+                     
+                        <div class="g-btn draggable stick-btn dir-up" data-btn="RS_Up"><div class="stick-circle">R</div></div>
+                        <div class="g-btn draggable stick-btn dir-down" data-btn="RS_Down"><div class="stick-circle">R</div></div>
+                        <div class="g-btn draggable stick-btn dir-left" data-btn="RS_Left"><div class="stick-circle">R</div></div>
+                        <div class="g-btn draggable stick-btn dir-right" data-btn="RS_Right"><div class="stick-circle">R</div></div>
+                        <div class="g-btn draggable stick-btn full" data-btn="R3"><div class="stick-circle">R</div></div>
+
+                        
+                        <div class="g-btn draggable" data-btn="LB"><div class="bumper-btn left">LB</div></div>
+                        <div class="g-btn draggable" data-btn="RB"><div class="bumper-btn right">RB</div></div>
+
+                       
+                        <div class="g-btn draggable" data-btn="LT"><div class="trigger-btn left">LT</div></div>
+                        <div class="g-btn draggable" data-btn="RT"><div class="trigger-btn right">RT</div></div>
+                        
+                    </div>
+                </div>
+
+              
+                <div class="panel tab-content" id="tab-config">
+                    <div class="config-layout">
+                        <div class="curve-section">
+                            <h3 data-i18n="curve_title">Интерактивная аналоговая кривая</h3>
+                            <p class="desc" data-i18n="curve_desc">Перетягивайте точки на графике для настройки мертвых зон.</p>
+                          
+                            <div style="position: relative; width: 300px; height: 200px; margin-top: 10px;">
+                                <canvas id="curveCanvas" width="300" height="200" style="cursor: pointer;"></canvas>
+                            </div>
+                            <div class="sliders">
+                                <label><span data-i18n="curve_start">Начальная мертвая зона</span>: <span id="dzVal">0.10</span>mm</label>
+                                <input type="range" id="deadzone-slider" min="0" max="40" value="1" style="display:none;">
+                                <label><span data-i18n="curve_end">Точка максимального нажатия</span>: <span id="maxVal">4.00</span>mm</label>
+                                <input type="range" id="max-slider" min="0" max="40" value="40" style="display:none;">
+                            </div>
+                        </div>
+                        <div class="settings-section">
+                            <h3 data-i18n="resp_title">Отклик контроллера</h3>
+                            
+                            <div class="setting-row">
+                                <div>
+                                    <h4 data-i18n="angle_title">Включить регулировку угла</h4>
+                                    <p class="desc" data-i18n="angle_desc">Изменяет вектор диагонального направления.</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" id="toggle-angle">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="slider-row" id="angle-slider-container" style="display: none;">
+                                <label><span data-i18n="angle_val">Угол</span>: <span id="angleVal">15</span>°</label>
+                                <input type="range" id="angle-slider" min="0" max="30" value="15">
+                            </div>
+
+                            <div class="setting-row">
+                                <div>
+                                    <h4 data-i18n="square_title">Использовать Квадратный Вектор джойстика</h4>
+                                    <p class="desc" data-i18n="square_desc">Обеспечивает абсолютный максимальный диапазон по диагоналям.</p>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" id="toggle-square">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+               
+                <div class="panel tab-content" id="tab-advanced">
+                    <h3 data-i18n="adv_title">Продвинутые настройки клавиш</h3>
+                    <p class="desc" data-i18n="adv_desc">Настройте Snap Tap, Rapid Trigger и DKS (Динамические нажатия) для конкретных клавиш.</p>
+                    
+                    <div class="settings-group">
+                        <div class="setting-row">
+                            <div>
+                                <h4 data-i18n="adv_st">Snap Tap (Взаимоисключающие клавиши)</h4>
+                                <p class="desc" data-i18n="adv_st_desc">При нажатии двух противоположных кнопок активной становится последняя нажатая.</p>
+                            </div>
+                            <button class="add-btn" id="add-snaptap" data-i18n="adv_add">+ Добавить</button>
+                        </div>
+                        <div id="snaptap-list" class="advanced-list"></div>
+                    </div>
+                    
+                    <div class="settings-group">
+                        <div class="setting-row">
+                            <div>
+                                <h4>Rapid Trigger</h4>
+                                <p class="desc" data-i18n="adv_rt_desc">Сбрасывает нажатие клавиши при отпускании, не дожидаясь возврата в начальную точку.</p>
+                            </div>
+                            <button class="add-btn" id="add-rt" data-i18n="adv_add">+ Добавить</button>
+                        </div>
+                        <div id="rt-list" class="advanced-list"></div>
+                    </div>
+                    
+                    <div class="settings-group">
+                        <div class="setting-row">
+                            <div>
+                                <h4>DKS (Dynamic Keystrokes)</h4>
+                                <p class="desc" data-i18n="adv_dks_desc">Привязка разных действий к глубине нажатия (до 4 точек).</p>
+                            </div>
+                            <button class="add-btn" id="add-dks" data-i18n="adv_add">+ Добавить</button>
+                        </div>
+                        <div id="dks-list" class="advanced-list"></div>
+                    </div>
+
+                </div>
+
+             
+                <div class="panel tab-content" id="tab-tester">
+                    <h3 data-i18n="test_title">Тестер Геймпада</h3>
+                    <p class="desc" data-i18n="test_desc">Просмотр текущего аналогового вывода (режим контроллера должен быть включен).</p>
+                    
+                    <div class="tester-layout">
+                        <div class="stick-container">
+                            <label>Левый стик</label>
+                            <canvas id="lsCanvas" width="150" height="150"></canvas>
+                        </div>
+                        <div class="stick-container">
+                            <label>Правый стик</label>
+                            <canvas id="rsCanvas" width="150" height="150"></canvas>
+                        </div>
+                        <div class="triggers-container">
+                            <div class="trigger-bar">
+                                <label>LT</label>
+                                <div class="bar-bg"><div class="bar-fill" id="lt-fill"></div></div>
+                            </div>
+                            <div class="trigger-bar">
+                                <label>RT</label>
+                                <div class="bar-bg"><div class="bar-fill" id="rt-fill"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tester-buttons">
+                        <label>Нажатые кнопки:</label>
+                        <div id="active-buttons-list" class="btn-list"></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+      
+        <div id="driver-modal" style="display: none;">
+            <div class="driver-modal-content">
+                <h2 data-i18n="drv_title">Необходимые драйверы</h2>
+                <p data-i18n="drv_desc">Для работы программы требуются следующие драйверы. Пожалуйста, установите их и перезапустите программу.</p>
+                <div id="missing-drivers-list"></div>
+                <p style="margin-top: 15px; font-size: 13px; color: #888;"><span data-i18n="drv_reboot">После скачивания и установки <b>обязательно перезагрузите компьютер</b>!</span></p>
+            </div>
+        </div>
+
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,21 +1,25 @@
 import os
 import subprocess
 
-print("Installing required build tools...")
-subprocess.run(["pip", "install", "pyinstaller"])
+import sys
+
+print("Installing required build tools and dependencies...")
+subprocess.run([sys.executable, "-m", "pip", "install", "pyinstaller", "pywebview", "vgamepad", "hidapi"])
 
 print("Building LuminkeyAnalogInput...")
 cmd = [
-    "pyinstaller",
+    sys.executable, "-m", "PyInstaller",
     "--noconfirm",
     "--windowed",
     "--onefile",
     "--name", "LuminkeyAnalogInput",
-    "--icon", "app_icon.ico",
+    "--icon", "assets/app_icon.ico",
     "--uac-admin", 
-    "--add-data", "app_icon.png;.",
+    "--add-data", "assets/app_icon.png;assets",
+    "--add-data", "web;web",
     "--collect-all", "vgamepad",
     "--collect-all", "interception",
+    "--collect-all", "hid",
     "main.py"
 ]
 
